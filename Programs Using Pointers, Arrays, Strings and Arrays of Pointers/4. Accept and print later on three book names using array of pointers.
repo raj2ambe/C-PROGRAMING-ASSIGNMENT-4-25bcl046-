@@ -1,0 +1,25 @@
+// Assignment by Raj Patel
+#include <stdio.h>
+
+int main() {
+    char *books[3];
+    char temp[100];
+
+    printf("Enter names of 3 books:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Book %d: ", i + 1);
+        fgets(temp, sizeof(temp), stdin);
+
+        // Allocate memory and copy string
+        books[i] = malloc(strlen(temp) + 1);
+        strcpy(books[i], temp);
+    }
+
+    printf("\nYou entered:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Book %d: %s", i + 1, books[i]);
+        free(books[i]); // Free allocated memory
+    }
+
+    return 0;
+}

@@ -1,0 +1,29 @@
+// Assignment by Raj Patel
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char name[100];
+    char *token;
+    char *words[10];
+    int count = 0;
+
+    printf("Enter full name: ");
+    fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = '\0'; // Remove newline
+
+    // Split name into words
+    token = strtok(name, " ");
+    while (token != NULL) {
+        words[count++] = token;
+        token = strtok(NULL, " ");
+    }
+
+    // Print abbreviated name
+    printf("Abbreviated name: ");
+    for (int i = 0; i < count - 1; i++)
+        printf("%c. ", words[i][0]);
+    printf("%s\n", words[count - 1]);
+
+    return 0;
+}

@@ -1,0 +1,25 @@
+// Assignment by Raj Patel
+#include <stdio.h>
+
+// Function to calculate a^b
+int power(int a, int b) {
+    int result = 1;
+    for (int i = 1; i <= b; i++)
+        result *= a;
+    return result;
+}
+
+int main() {
+    int base, exponent;
+
+    printf("Enter base: ");
+    scanf("%d", &base);
+
+    printf("Enter exponent: ");
+    scanf("%d", &exponent);
+
+    int result = power(base, exponent);
+    printf("%d^%d = %d\n", base, exponent, result);
+
+    return 0;
+}

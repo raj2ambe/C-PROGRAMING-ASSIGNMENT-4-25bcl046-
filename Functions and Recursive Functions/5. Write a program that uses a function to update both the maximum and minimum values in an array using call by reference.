@@ -1,0 +1,26 @@
+// Assignment by Raj Patel
+#include <stdio.h>
+
+// Function to find max and min using call by reference
+void findMaxMin(int arr[], int size, int *max, int *min) {
+    *max = *min = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > *max)
+            *max = arr[i];
+        if (arr[i] < *min)
+            *min = arr[i];
+    }
+}
+
+int main() {
+    int data[] = {12, 45, 3, 67, 23, 89, 5};
+    int maxVal, minVal;
+    int n = sizeof(data) / sizeof(data[0]);
+
+    findMaxMin(data, n, &maxVal, &minVal);
+
+    printf("Maximum value: %d\n", maxVal);
+    printf("Minimum value: %d\n", minVal);
+
+    return 0;
+}
